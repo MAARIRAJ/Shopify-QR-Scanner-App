@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "c5694c454b5ed928128bb86901eeb781"
+name = "QR Scanner App"
+handle = "qr-scanner-app"
+application_url = "https://hardcover-tanzania-questions-platinum.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-2e8d25df.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_orders,read_products,write_orders,write_products"
+
+[auth]
+redirect_urls = [
+  "https://hardcover-tanzania-questions-platinum.trycloudflare.com/auth/callback",
+  "https://hardcover-tanzania-questions-platinum.trycloudflare.com/auth/shopify/callback",
+  "https://hardcover-tanzania-questions-platinum.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+[pos]
+embedded = false

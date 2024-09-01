@@ -1,0 +1,48 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "d364bba6d575a48db9bdc2ba4ec118d1"
+name = "Ecommerce App"
+handle = "yourAppHandle"
+application_url = "https://4b2b-2402-3a80-43b-c755-10bc-298b-59b4-d87.ngrok-free.app"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = false
+dev_store_url = "quickstart-2e8d25df.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_content,write_content,read_products"
+use_legacy_install_flow = false
+
+[auth]
+redirect_urls = [
+  "https://4b2b-2402-3a80-43b-c755-10bc-298b-59b4-d87.ngrok-free.app/api/"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  uri = "/api/gdpr/customers_data_request"
+  compliance_topics = [ "customers/data_request" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/api/gdpr/customers_redact"
+  compliance_topics = [ "customers/redact" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/api/gdpr/shop_redact"
+  compliance_topics = [ "shop/redact" ]
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/api/webhooks/app_uninstalled"
+
+[app_proxy]
+url = "https://4b2b-2402-3a80-43b-c755-10bc-298b-59b4-d87.ngrok-free.app/api/proxy_route"
+subpath = "someSubpath"
+prefix = "apps"
+
+[pos]
+embedded = true
